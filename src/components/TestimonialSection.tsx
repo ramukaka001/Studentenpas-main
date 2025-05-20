@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
 
+// Define the structure of a testimonial object
 interface Testimonial {
   id: number;
   name: string;
@@ -9,6 +10,7 @@ interface Testimonial {
   rating: number; // e.g. 4.8
 }
 
+// Sample testimonial data
 const testimonials: Testimonial[] = [
   {
     id: 1,
@@ -90,6 +92,7 @@ const StarRating: React.FC<{ rating: number }> = ({ rating }) => {
 };
 
 const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }) => {
+  // Component to display an individual testimonial card
   return (
     <div className="max-w-md mx-auto bg-gradient-to-b from-blue-800 to-blue-900 rounded-xl shadow-lg overflow-hidden">
       <div className="relative">
@@ -112,20 +115,22 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }
         <h3 className="text-xl font-semibold">{testimonial.name}</h3>
         <p className="text-gray-300 text-sm mb-3">{testimonial.occupation}</p>
         <StarRating rating={testimonial.rating} />
-        <p className="mt-4 text-gray-200 italic">"{`This is a placeholder for a testimonial quote.`}"</p>
+        {/* Placeholder quote - replace with actual testimonial text */}
+        <p className="mt-4 text-gray-200 italic">
+          "Degree Expres helped me navigate the complex college application process with ease and confidence. Highly recommended!"
+        </p>
       </div>
     </div>
   );
 };
 
-const testimonialsPerPage = 3; // Number of testimonials to show per page
+const testimonialsPerPage = 3; // Number of testimonials to display per page
 
 const TestimonialSection: React.FC = () => {
+  // State to manage the current set of testimonials being displayed
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const goNext = () =>
-    setCurrentIndex((i) => (i + testimonialsPerPage >= testimonials.length ? 0 : i + testimonialsPerPage));
-
+  // Navigation handlers for previous and next sets of testimonials
   const goPrev = () =>
     setCurrentIndex((i) => (i === 0 ? testimonials.length - testimonialsPerPage : i - testimonialsPerPage));
 
@@ -138,38 +143,27 @@ const TestimonialSection: React.FC = () => {
 
   return (
     <section className="bg-gray-900 py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative"> {/* Added relative positioning for absolute buttons */}
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 mx-auto text-center">
           What Our Students Say
         </h2>
         <p className="text-gray-400 mb-12 max-w-xl text-center mx-auto">
           Hear from people from diverse backgrounds sharing their experiences.
         </p>
-        {/* Single Card View - Keep for now, but will be replaced */}
-        {/* <div className="relative max-w-md mx-auto">
-          <TestimonialCard testimonial={testimonials[currentIndex]} />
 
-          {/* Navigation */}
-        <button
-          onClick={goPrev}
-          aria-label="Previous testimonial"
-          className="absolute left-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 p-2 rounded-full focus:outline-none"
-        >
-          <ChevronLeft className="text-white" size={24} />
-        </button>
-        <button
-          onClick={goNext}
-          aria-label="Next testimonial"
-          className="absolute right-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 p-2 rounded-full focus:outline-none"
-        >
-          <ChevronRight className="text-white" size={24} />
-        </button>
-
-        {/* New Multi-Card Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Grid layout for displaying multiple testimonial cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative"> {/* Added relative for internal positioning if needed */}
           {currentTestimonials.map((testimonial) => (
             <TestimonialCard key={testimonial.id} testimonial={testimonial} />
           ))}
+          {/* Navigation buttons for the carousel */}
+          <button onClick={goPrev} aria-label="Previous testimonial" className="absolute left-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 p-2 rounded-full focus:outline-none z-10">
+            <ChevronLeft className="text-white" size={24} />
+          </button>
+          <button onClick={() => setCurrentIndex((i) => (i + testimonialsPerPage) % testimonials.length)} aria-label="Next testimonial" className="absolute right-0 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 p-2 rounded-full focus:outline-none z-10">
+            <ChevronRight className="text-white" size={24} />
+          </button>
+
         </div>
 
         {/* Pagination/Navigation Below Cards */}

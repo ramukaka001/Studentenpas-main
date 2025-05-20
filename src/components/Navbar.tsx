@@ -14,9 +14,9 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
-            <span className="text-blue-400 text-2xl font-semibold">Studenten</span>
+            <span className="text-blue-400 text-2xl font-semibold">Degree</span>
             <div className="bg-blue-500 px-2 py-1 rounded-md transform rotate-2">
-              <span className="text-white text-2xl font-semibold">pas</span>
+              <span className="text-white text-2xl font-semibold">Expres</span>
             </div>
           </Link>
         </div>

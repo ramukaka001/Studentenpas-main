@@ -40,7 +40,7 @@ function App() {
                 <CareerPathSection />
                 <PricingSection />
                 <FeatureSection />
-                <BlogSection />
+                {/* <BlogSection /> */}
                 <FaqSection />
                 <CtaSection />
               </>
