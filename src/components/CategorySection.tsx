@@ -18,22 +18,22 @@ const categories = [
 const careerFields = [
   {
     id: 1,
-    title: 'Computer',
-    description: 'Lorem ipsum dolor sit amet consectetur. Eleifend molestie eu arcu consequat.',
+    title: 'Software Engineering',
+    description: 'Develop innovative software solutions and build the digital future.',
     image: 'https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg',
     color: 'bg-purple-500',
   },
   {
     id: 2,
-    title: 'Humanities',
-    description: 'Lorem ipsum dolor sit amet consectetur. Eleifend molestie eu arcu consequat.',
+    title: 'Creative Writing',
+    description: 'Craft compelling narratives and explore the power of language.',
     image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg',
     color: 'bg-pink-500',
   },
   {
     id: 3,
-    title: 'Medical',
-    description: 'Lorem ipsum dolor sit amet consectetur. Eleifend molestie eu arcu consequat.',
+    title: 'Medicine',
+    description: 'Heal and care for others through the practice of medicine.',
     image: 'https://images.pexels.com/photos/5214949/pexels-photo-5214949.jpeg',
     color: 'bg-green-500',
   },
@@ -53,7 +53,7 @@ const CategorySection: React.FC = () => {
         <div className="mb-10 max-w-md mx-auto">
           <div className="relative">
             <input
-              type="text"
+              type="search"
               placeholder="Search"
               className="w-full bg-gray-800 text-white rounded-full py-3 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={searchTerm}
