@@ -25,25 +25,25 @@ const FeatureSection: React.FC = () => {
       id: 1,
       icon: <Users size={24} className="text-white" />,
       title: 'Expert Guidance',
-      description: 'entrepreneur and AI expert, Jonathan Richardson',
+ description: 'Benefit from insights provided by experienced mentors and industry professionals.',
     },
     {
       id: 2,
       icon: <Laptop size={24} className="text-white" />,
       title: 'Mentorship',
-      description: 'Lorem ipsum dolor sit amet consectetur. Donec quis.',
+ description: 'Get personalized guidance and support to navigate your academic journey.',
     },
     {
       id: 3,
       icon: <Network size={24} className="text-white" />,
       title: 'Consultation',
-      description: 'Lorem ipsum dolor sit amet consectetur. Donec quis.',
+ description: 'Receive tailored advice on program selection, applications, and career paths.',
     },
     {
       id: 4,
       icon: <HandHelping size={24} className="text-white" />,
       title: 'Admission Support',
-      description: 'Lorem ipsum dolor sit amet consectetur. Donec quis.',
+ description: 'Navigate the complex application process with expert assistance.',
     },
     {
       id: 5,
@@ -55,7 +55,7 @@ const FeatureSection: React.FC = () => {
       id: 6,
       icon: <BarChart2 size={24} className="text-white" />,
       title: 'Career Advancement',
-      description: 'Lorem ipsum dolor sit amet consectetur. Donec quis.',
+ description: 'Develop skills and strategies for future career success and growth.',
     },
   ];
 
@@ -63,7 +63,7 @@ const FeatureSection: React.FC = () => {
     <div className="bg-gray-900 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl md:text-5xl font-bold text-white text-center uppercase mb-16">
-          Why Choose Us
+ Why Choose Degree Expres?
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

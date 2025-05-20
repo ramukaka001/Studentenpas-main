@@ -35,19 +35,19 @@ const CareerPathSection: React.FC = () => {
   return (
     <>
       <CareerPath 
-        title="Astronaut" 
-        description="Lorem ipsum dolor sit amet consectetur. Tempus diam sit vitae pellentesque proin quis, felis morbi pulvinar rhoncus aliquam." 
+        title="Aviation" 
+        description="Explore careers in the exciting field of aviation, including piloting, air traffic control, and aircraft maintenance. Reach for the skies with expert guidance." 
         image="https://images.pexels.com/photos/2156/sky-earth-space-working.jpg"
         isReversed={true} 
       />
       <CareerPath 
-        title="Pilot" 
-        description="Lorem ipsum dolor sit amet consectetur. Tempus diam sit vitae pellentesque proin quis, felis morbi pulvinar rhoncus aliquam." 
+        title="Engineering" 
+        description="Discover the diverse world of engineering – from civil and mechanical to electrical and software. Build your future with insights into these innovative fields." 
         image="https://images.pexels.com/photos/2166711/pexels-photo-2166711.jpeg"
       />
       <CareerPath 
         title="Merchant Navy" 
-        description="Lorem ipsum dolor sit amet consectetur. Tempus diam sit vitae pellentesque proin quis. Sed convallis pulvinar commodo aliquam." 
+        description="Set sail on a fulfilling career in the Merchant Navy, encompassing roles in navigation, engineering, and crew management. Navigate your path to success at sea." 
         image="https://images.pexels.com/photos/1117210/pexels-photo-1117210.jpeg"
         isReversed={true} 
       />
