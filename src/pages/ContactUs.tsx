@@ -15,9 +15,9 @@ const ContactUs: React.FC = () => {
           <div className="text-center">
             <h1 className="text-5xl font-bold text-white mb-6">Contact Us</h1>
             <p className="text-gray-200 max-w-2xl mx-auto">
-              It is a long established fact that a reader will be distracted by the readable
-              content of a page when looking at its layout. The point of using Lorem
-              ipsum is that it has a more-or-less normal distribution of letters.
+              Feel free to reach out to us with any questions, inquiries, or to schedule
+              a consultation. We're here to help you navigate your academic
+              journey.
             </p>
           </div>
         </div>
@@ -27,16 +27,16 @@ const ContactUs: React.FC = () => {
       <div className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-white text-center mb-12">Get In Touch</h2>
-          
+
           <div className="flex flex-col lg:flex-row gap-12">
             {/* Contact Information */}
             <div className="lg:w-1/2">
               <p className="text-gray-400 mb-8">
-                Lorem ipsum dolor sit amet consectetur. Viverra at arcu condimentum
-                velit eleifend nulla ex. Vitae augue lacus nunc nibh sed. Sed nisi turpis
-                duis bibendum pellentesque nulla eget vel et orci. Augue enim non nisi.
+                Our team of experienced counselors is ready to provide personalized guidance
+                and support. Connect with us today to discuss your goals and
+                how we can help you achieve them.
               </p>
-              
+
               <div className="space-y-6">
                 <div className="flex items-start">
                   <div className="bg-blue-500 p-3 rounded-full mr-4">
@@ -118,7 +118,7 @@ const ContactUs: React.FC = () => {
           <h2 className="text-3xl font-bold text-white text-center mb-12">
             Frequently Asked Questions
           </h2>
-          
+
           <div className="space-y-4">
             <div className="bg-gray-700 rounded-lg p-4">
               <button className="flex items-center justify-between w-full">

@@ -9,13 +9,13 @@ const Footer: React.FC = () => {
           {/* Column 1 - Logo and Info */}
           <div>
             <div className="flex items-center mb-4">
-              <span className="text-blue-300 text-2xl font-semibold">Studenten</span>
+              <span className="text-blue-300 text-2xl font-semibold">Degree</span>
               <div className="bg-blue-500 px-2 py-1 rounded-md transform rotate-2">
-                <span className="text-white text-2xl font-semibold">pas</span>
+                <span className="text-white text-2xl font-semibold">Express</span>
               </div>
             </div>
             <p className="text-blue-100 text-sm mb-4">
-              "Nutri Bio Science offers natural, plant-based healthcare products crafted to enhance lifestyle.
+              Degree Express is a college counselling website dedicated to helping students find the right educational path.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-blue-300 hover:text-white transition">
@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <h4 className="text-white font-semibold mb-4">Shop All</h4>
-                <ul className="space-y-2 text-sm">
+                <ul className="space-y-2 text-sm text-blue-200">
                   <li><a href="#" className="text-blue-200 hover:text-white transition">About Us</a></li>
                   <li><a href="#" className="text-blue-200 hover:text-white transition">Course</a></li>
                   <li><a href="#" className="text-blue-200 hover:text-white transition">Counselor</a></li>
@@ -43,7 +43,7 @@ const Footer: React.FC = () => {
                 </ul>
               </div>
               <div>
-                <h4 className="text-white font-semibold mb-4">My Account</h4>
+                <h4 className="text-white font-semibold mb-4">Resources</h4>
                 <ul className="space-y-2 text-sm">
                   <li><a href="#" className="text-blue-200 hover:text-white transition">Counselor</a></li>
                   <li><a href="#" className="text-blue-200 hover:text-white transition">Terms & Condition</a></li>
@@ -57,11 +57,11 @@ const Footer: React.FC = () => {
           <div>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <h4 className="text-white font-semibold mb-4">UPI ID</h4>
+                <h4 className="text-white font-semibold mb-4">Connect With Us</h4>
                 <ul className="space-y-2 text-sm">
-                  <li><a href="#" className="text-blue-200 hover:text-white transition">Debit Card</a></li>
-                  <li><a href="#" className="text-blue-200 hover:text-white transition">Credit Card</a></li>
-                  <li><a href="#" className="text-blue-200 hover:text-white transition">Net Banking</a></li>
+                  <li><a href="#" className="text-blue-200 hover:text-white transition">Support</a></li>
+                  <li><a href="#" className="text-blue-200 hover:text-white transition">Contact</a></li>
+                  <li><a href="#" className="text-blue-200 hover:text-white transition">Blog</a></li>
                   <li><a href="#" className="text-blue-200 hover:text-white transition">Refund & Returns</a></li>
                 </ul>
               </div>
@@ -91,7 +91,7 @@ const Footer: React.FC = () => {
       {/* Copyright */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <p className="text-center text-blue-200 text-sm">
-          © {new Date().getFullYear()} Studentenpas. All rights reserved.
+          © {new Date().getFullYear()} DegreeExpress. All rights reserved.
         </p>
       </div>
     </footer>

@@ -43,27 +43,27 @@ const AboutUs: React.FC = () => {
     {
       icon: <Users size={24} className="text-white" />,
       title: 'Expert Guidance',
-      description: 'entrepreneur and AI expert, Jonathan Richardson',
+ description: 'Receive personalized guidance from seasoned professionals.',
     },
     {
       icon: <Laptop size={24} className="text-white" />,
       title: 'Mentorship',
-      description: 'Lorem ipsum dolor sit amet consectetur. Donec quis.',
+ description: 'Connect with mentors who have walked the path before you.',
     },
     {
       icon: <Network size={24} className="text-white" />,
       title: 'Consultation',
-      description: 'Lorem ipsum dolor sit amet consectetur. Donec quis.',
+ description: 'Get in-depth consultations to clarify your academic goals.',
     },
     {
       icon: <HandHelping size={24} className="text-white" />,
       title: 'Admission Support',
-      description: 'Lorem ipsum dolor sit amet consectetur. Donec quis.',
+ description: 'Navigate the complexities of college admissions with ease.',
     },
     {
       icon: <LightbulbIcon size={24} className="text-white" />,
       title: 'New Opportunity',
-      description: 'Lorem ipsum dolor sit amet consectetur. Donec quis.',
+ description: 'Discover hidden opportunities that align with your aspirations.',
     },
     {
       icon: <BarChart2 size={24} className="text-white" />,
@@ -103,9 +103,8 @@ const AboutUs: React.FC = () => {
           <div className="text-center">
             <h1 className="text-5xl font-bold text-white mb-6">About us</h1>
             <p className="text-gray-200 max-w-2xl mx-auto">
-              It is a long established fact that a reader will be distracted by the readable
-              content of a page when looking at its layout. The point of using Lorem
-              Ipsum is that it has a more-or-less normal distribution of letters.
+ At Degree Expres, we are passionate about empowering students to achieve their academic
+ and career dreams. We provide comprehensive college counseling services.
             </p>
           </div>
         </div>
@@ -132,9 +131,8 @@ const AboutUs: React.FC = () => {
             Our Startup Journey
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-3xl mx-auto">
-            There are many variations of passages of Lorem Ipsum available, but the majority have
-            suffered alteration in some form, by injected humour, or randomised words which don't look
-            even slightly believable.
+ From a small idea to a thriving community, our journey has been fueled by a
+ commitment to helping students navigate the complex world of higher education.
           </p>
           <div className="relative rounded-xl overflow-hidden">
             <img
@@ -158,8 +156,8 @@ const AboutUs: React.FC = () => {
             Our Team Member
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-3xl mx-auto">
-            We are Health professionals and have been rendering our services in
-            diagnosing and treating disease for more than two decades. We have seen a
+ Meet the dedicated individuals behind Degree Expres, committed to providing
+ the best possible support for your academic journey.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {teamMembers.map((member, index) => (

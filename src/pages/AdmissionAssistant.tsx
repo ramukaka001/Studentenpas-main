@@ -22,23 +22,23 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, color }) 
 const AdmissionAssistant: React.FC = () => {
   const services = [
     {
-      title: 'Service 1',
-      description: 'Lorem ipsum dolor sit amet consectetur. Eleifend molestie eu arcu consequat et vestibulum. Etiam elementum nullam quis nulla diam ac.',
+      title: 'Personalized Career Assessment',
+      description: 'Leverage our AI-powered tools to discover the best-fit career paths aligned with your interests, skills, and aptitude.',
       color: 'bg-red-500',
     },
     {
-      title: 'Service 2',
-      description: 'Lorem ipsum dolor sit amet consectetur. Eleifend molestie eu arcu consequat et vestibulum. Etiam elementum nullam quis nulla diam ac.',
+      title: 'University & Course Matching',
+      description: 'Navigate the vast landscape of universities and courses with our expert guidance, finding the perfect academic home for your aspirations.',
       color: 'bg-yellow-500',
     },
     {
-      title: 'Service 3',
-      description: 'Lorem ipsum dolor sit amet consectetur. Eleifend molestie eu arcu consequat et vestibulum. Etiam elementum nullam quis nulla diam ac.',
+      title: 'Application & Admission Support',
+      description: 'Receive comprehensive assistance with crafting compelling applications, essays, and preparing for interviews to maximize your chances of acceptance.',
       color: 'bg-purple-500',
     },
     {
-      title: 'Service 4',
-      description: 'Lorem ipsum dolor sit amet consectetur. Eleifend molestie eu arcu consequat et vestibulum. Etiam elementum nullam quis nulla diam ac.',
+      title: 'Expert Mentorship',
+      description: 'Connect with experienced professionals and mentors who provide invaluable insights and guidance on your chosen career path.',
       color: 'bg-blue-500',
     },
   ];
@@ -121,7 +121,7 @@ const AdmissionAssistant: React.FC = () => {
                 Book a Personalized Career Session with Experts*
               </p>
               <p className="text-gray-400 mb-8">
-                Lorem ipsum dolor sit amet consectetur. Sagittis placerat eros vulputat mattique sapien pellentesque vulputat nulla. Tristique nisi est sit lorem felis non arcu ornare. Quam ex felis lorem non porttitor lectus sed. Sapien pharetra gravida libero amet enim ac. Lorem enim tempor aliquam varius scelerisque dolor tellus vitae turpis. Imperdiet sit tempor du ridiculus eleifend id libero! a.
+                At Degree Expres, we understand that navigating your academic and career future can feel daunting. Our personalized counselling services provide expert guidance, empowering you to make informed decisions and achieve your full potential. From choosing the right courses to securing admission in your dream university, we are with you every step of the way.
               </p>
               <div className="flex space-x-4">
                 <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-md transition">
