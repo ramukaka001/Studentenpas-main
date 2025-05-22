@@ -26,7 +26,7 @@ const Navbar: React.FC = () => {
           <Link to="/" className="text-white hover:text-blue-400 transition">Home</Link>
           <Link to="/career-counselling" className="text-white hover:text-blue-400 transition">Career Counselling</Link>
           <Link to="/admission-assistant" className="text-white hover:text-blue-400 transition">Admission Assistant</Link>
-          <Link to="/blog" className="text-white hover:text-blue-400 transition">Blog</Link>
+          {/* <Link to="/blog" className="text-white hover:text-blue-400 transition">Blog</Link> */}
           <Link to="/about-us" className="text-white hover:text-blue-400 transition">About Us</Link>
           <Link to="/contact" className="text-white hover:text-blue-400 transition">Contact Us</Link>
           <Link to="/signin" className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md transition">

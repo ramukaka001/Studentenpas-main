@@ -1,10 +1,7 @@
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:1021477225.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:2711344930.
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:3970646243.
 import React, { useState, useEffect } from 'react';
 import { Check } from 'lucide-react';
 import axios from 'axios';
-import { API_URL } from '../constants';
+import { API_URL, RAZORPAY_KEY } from '../constants';
 
 interface PricingPlanProps {
   title: string;
@@ -125,7 +122,7 @@ const PricingSection: React.FC = () => {
       const amountInPaise = data.order.amount * 100;
 
       const rzp = new (window as any).Razorpay({
-        key: "rzp_test_BLFX3LFqsUlSeD",
+        key: RAZORPAY_KEY,
         amount: amountInPaise,
         currency: "INR",
         name: "Career Packages",

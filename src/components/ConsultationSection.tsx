@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { API_URL } from '../constants';
 
 const ConsultationSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -18,7 +19,7 @@ const ConsultationSection: React.FC = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3000/api/consult/bookConsult', formData);
+      const response = await axios.post(`${API_URL}/consult/bookConsult`, formData);
       if (response.data.success) {
         alert('Thanks! We will contact you soon.');
         setFormData({ name: '', email: '', mobile: '', message: '' }); 
