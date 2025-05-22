@@ -33,7 +33,7 @@ const ConsultationSection: React.FC = () => {
   };
 
   return (
-    <section className="bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 py-20 relative overflow-hidden">
+    <section id="counsultation" className="bg-gradient-to-br from-blue-700 via-blue-600 to-blue-500 py-20 relative overflow-hidden">
       <div className="absolute top-0 left-0 w-40 h-40 bg-white bg-opacity-10 rounded-full blur-2xl animate-ping" />
       <div className="absolute bottom-0 right-0 w-56 h-56 bg-white bg-opacity-10 rounded-full blur-2xl animate-pulse" />
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Rocket } from 'lucide-react';
 import axios from 'axios';
 import { API_URL } from '../constants';
+import { Link } from 'react-router-dom';
 
 interface ServiceCardProps {
   title: string;
@@ -35,9 +36,9 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ title, description, image, 
     <div className="p-4">
       <h3 className="text-lg font-semibold text-white mb-2">{title}</h3>
       <p className="text-gray-400 text-sm mb-4">{description}</p>
-      <button className="w-full bg-blue-500 hover:bg-blue-600 text-white text-sm py-2 px-4 rounded transition">
+      <Link to="#counsel" className="w-full bg-blue-500 hover:bg-blue-600 text-white text-sm py-2 px-4 rounded transition">
         Book Now →
-      </button>
+      </Link>
     </div>
   </div>
 );
@@ -181,7 +182,7 @@ const CareerCounselling: React.FC = () => {
       </div>
 
       {/* Consultation Form Section */}
-      <div className="bg-blue-600 py-16">
+      <div id="counseltation" className="bg-blue-600 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center justify-between">
             <div className="lg:w-1/2 mb-8 lg:mb-0">

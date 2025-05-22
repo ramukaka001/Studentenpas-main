@@ -87,14 +87,14 @@ const UniversitySection: React.FC = () => {
           ))}
         </div>
 
-        <div className="flex justify-center mt-14">
+        {/* <div className="flex justify-center mt-14">
           <button
             className="bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-3 px-8 rounded-lg shadow-md transition"
             onClick={() => alert('Redirect to full list or external page')}
           >
             See More Universities
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   );

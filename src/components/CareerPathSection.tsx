@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 interface CareerPathProps {
   title: string;
@@ -21,9 +22,9 @@ const CareerPath: React.FC<CareerPathProps> = ({ title, description, image, isRe
           <div className={`lg:w-2/3 ${isReversed ? 'lg:pr-12' : 'lg:pl-12'}`}>
             <h2 className="text-3xl font-bold text-white mb-4">{title}</h2>
             <p className="text-gray-200 mb-6">{description}</p>
-            <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded-md transition">
+            <Link to="/career-counselling#book-now" className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded-md transition">
               Book Now
-            </button>
+            </Link>
           </div>
         </div>
       </div>

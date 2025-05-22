@@ -17,9 +17,9 @@ const HeroSection: React.FC = () => {
             <p className="text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0">
               Skip the confusion. Degree Expres helps you discover your ideal path, choose the right college, and launch a future built on clarity, confidence, and opportunity.
             </p>
-            <button className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-md text-lg font-medium transition transform hover:-translate-y-1 hover:shadow-xl">
+            <a href="#pricing" className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-md text-lg font-medium transition transform hover:-translate-y-1 hover:shadow-xl">
               Start Your Counselling Now
-            </button>
+            </a>
           </div>
 
           {/* Right Content - Student Image */}

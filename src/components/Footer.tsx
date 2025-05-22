@@ -1,5 +1,6 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram, Send } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
@@ -18,15 +19,15 @@ const Footer: React.FC = () => {
               Degree Express is a college counselling website dedicated to helping students find the right educational path.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-blue-300 hover:text-white transition">
+              <Link to="#" className="text-blue-300 hover:text-white transition">
                 <Facebook size={20} />
-              </a>
-              <a href="#" className="text-blue-300 hover:text-white transition">
+              </Link>
+              <Link to="#" className="text-blue-300 hover:text-white transition">
                 <Twitter size={20} />
-              </a>
-              <a href="#" className="text-blue-300 hover:text-white transition">
+              </Link>
+              <Link to="#" className="text-blue-300 hover:text-white transition">
                 <Instagram size={20} />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -36,18 +37,18 @@ const Footer: React.FC = () => {
               <div>
                 <h4 className="text-white font-semibold mb-4">Shop All</h4>
                 <ul className="space-y-2 text-sm text-blue-200">
-                  <li><a href="#" className="text-blue-200 hover:text-white transition">About Us</a></li>
-                  <li><a href="#" className="text-blue-200 hover:text-white transition">Course</a></li>
-                  <li><a href="#" className="text-blue-200 hover:text-white transition">Counselor</a></li>
-                  <li><a href="#" className="text-blue-200 hover:text-white transition">Privacy Policy</a></li>
+                  <li><Link to="/about" className="text-blue-200 hover:text-white transition">About Us</Link></li>
+                  <li><Link to="#" className="text-blue-200 hover:text-white transition">Course</Link></li>
+                  <li><Link to="#" className="text-blue-200 hover:text-white transition">Counselor</Link></li>
+                  <li><Link to="#" className="text-blue-200 hover:text-white transition">Privacy Policy</Link></li>
                 </ul>
               </div>
               <div>
                 <h4 className="text-white font-semibold mb-4">Resources</h4>
                 <ul className="space-y-2 text-sm">
-                  <li><a href="#" className="text-blue-200 hover:text-white transition">Counselor</a></li>
-                  <li><a href="#" className="text-blue-200 hover:text-white transition">Terms & Condition</a></li>
-                  <li><a href="#" className="text-blue-200 hover:text-white transition">FAQ</a></li>
+                  <li><Link to="/career-counselling" className="text-blue-200 hover:text-white transition">Counselor</Link></li>
+                  <li><Link to="#" className="text-blue-200 hover:text-white transition">Terms & Condition</Link></li>
+                  <li><Link to="#" className="text-blue-200 hover:text-white transition">FAQ</Link></li>
                 </ul>
               </div>
             </div>
@@ -59,10 +60,8 @@ const Footer: React.FC = () => {
               <div>
                 <h4 className="text-white font-semibold mb-4">Connect With Us</h4>
                 <ul className="space-y-2 text-sm">
-                  <li><a href="#" className="text-blue-200 hover:text-white transition">Support</a></li>
-                  <li><a href="#" className="text-blue-200 hover:text-white transition">Contact</a></li>
-                  <li><a href="#" className="text-blue-200 hover:text-white transition">Blog</a></li>
-                  <li><a href="#" className="text-blue-200 hover:text-white transition">Refund & Returns</a></li>
+                  <li><Link to="/contact" className="text-blue-200 hover:text-white transition">Contact</Link></li>
+                  <li><Link to="/blog" className="text-blue-200 hover:text-white transition">Blog</Link></li>
                 </ul>
               </div>
             </div>
@@ -87,7 +86,7 @@ const Footer: React.FC = () => {
 
       {/* Bottom Border */}
       <div className="border-t border-blue-700 border-dashed"></div>
-      
+
       {/* Copyright */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <p className="text-center text-blue-200 text-sm">

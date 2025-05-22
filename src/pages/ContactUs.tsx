@@ -75,7 +75,7 @@ const ContactUs: React.FC = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="lg:w-1/2">
+            <div id="contact" className="lg:w-1/2">
               <div className="bg-white rounded-lg p-8">
                 <h3 className="text-xl font-semibold text-gray-800 mb-6">Book A Consultation!</h3>
                 <form className="space-y-4">
@@ -163,12 +163,12 @@ const ContactUs: React.FC = () => {
             our expert guidance.
           </p>
           <div className="flex justify-center space-x-4">
-            <button className="bg-blue-500 text-white px-8 py-3 rounded-md hover:bg-blue-600 transition">
+            <a href="/#pricing" className="bg-blue-500 text-white px-8 py-3 rounded-md hover:bg-blue-600 transition">
               View Plans
-            </button>
-            <button className="border border-blue-500 text-white px-8 py-3 rounded-md hover:bg-blue-500 hover:bg-opacity-10 transition">
+            </a>
+            <a href="#contact" className="border border-blue-500 text-white px-8 py-3 rounded-md hover:bg-blue-500 hover:bg-opacity-10 transition">
               Contact Us
-            </button>
+            </a>
           </div>
         </div>
       </div>

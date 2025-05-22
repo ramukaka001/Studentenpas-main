@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const CtaSection: React.FC = () => {
   return (
@@ -18,12 +19,12 @@ const CtaSection: React.FC = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-          <button className="bg-blue-500 hover:bg-blue-600 text-white py-3 px-8 rounded-md transition">
+          <a href="/#pricing" className="bg-blue-500 hover:bg-blue-600 text-white py-3 px-8 rounded-md transition">
             View Plans
-          </button>
-          <button className="border border-blue-500 text-white py-3 px-8 rounded-md hover:bg-blue-500 hover:bg-opacity-10 transition">
+          </a>
+          <Link to="/contact" className="border border-blue-500 text-white py-3 px-8 rounded-md hover:bg-blue-500 hover:bg-opacity-10 transition">
             Contact Us
-          </button>
+          </Link>
         </div>
       </div>
     </div>

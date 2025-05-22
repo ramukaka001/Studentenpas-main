@@ -125,12 +125,12 @@ const AdmissionAssistant: React.FC = () => {
                 At Degree Expres, we understand that navigating your academic and career future can feel daunting. Our personalized counselling services provide expert guidance, empowering you to make informed decisions and achieve your full potential. From choosing the right courses to securing admission in your dream university, we are with you every step of the way.
               </p>
               <div className="flex space-x-4">
-                <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-md transition">
+                <Link to="/career-counselling" className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-md transition">
                   Book a Session
-                </button>
-                <button className="border border-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-500 hover:bg-opacity-10 transition">
+                </Link>
+                <Link to="/career-counselling" className="border border-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-500 hover:bg-opacity-10 transition">
                   View Session Type
-                </button>
+                </Link>
               </div>
             </div>
             <div className="lg:w-1/2 lg:pl-12">
@@ -271,9 +271,9 @@ const AdmissionAssistant: React.FC = () => {
               <p className="text-blue-100">
                 We're Here To Simplify Your Career Journey From AI-Powered Insights To Real Human Support – We Guide You Every Step Of The Way.
               </p>
-              <button className="mt-6 bg-white text-blue-600 px-8 py-3 rounded-md font-semibold hover:bg-blue-50 transition">
+              <Link to="/#pricing" className="mt-6 bg-white text-blue-600 px-8 py-3 rounded-md font-semibold hover:bg-blue-50 transition">
                 View Plans
-              </button>
+              </Link>
             </div>
             <div className="lg:w-1/2 lg:pl-12">
               <img
