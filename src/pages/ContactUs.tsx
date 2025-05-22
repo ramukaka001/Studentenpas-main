@@ -58,7 +58,7 @@ const ContactUs: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-white font-semibold mb-2">Phone No</h3>
-                    <p className="text-gray-400">+91-22-60-80-90-35</p>
+                    <p className="text-gray-400">--</p>
                   </div>
                 </div>
 
@@ -68,7 +68,7 @@ const ContactUs: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-white font-semibold mb-2">Email Id</h3>
-                    <p className="text-gray-400">Support@collegemeansukaar.com</p>
+                    <p className="text-gray-400">support@degreeexpress.in</p>
                   </div>
                 </div>
               </div>
