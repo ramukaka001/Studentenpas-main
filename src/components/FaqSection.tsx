@@ -42,7 +42,7 @@ const FaqSection: React.FC = () => {
     {
       id: 1,
       question: 'What career is best suited for my personality and interests?',
-      answer: 'Lorem ipsum dolor sit amet consectetur. Quis est dignissim in odio quam massa mattis. Porttitor amet mattis nullam tempus ultrices molestie senectus morbi. Commodo cras tellus venenatis enim. Nulla sapien sed elit sed. Nullam vestibulum.',
+      answer: 'We offer personalized career counseling services that take into account your unique personality traits, skills, and interests to help you explore and identify career paths that align with your aspirations. Our assessments and consultations provide valuable insights to guide your decisions.',
     },
     {
       id: 2,
@@ -77,7 +77,7 @@ const FaqSection: React.FC = () => {
         <h2 className="text-3xl md:text-4xl font-bold text-white text-center italic mb-12">
           Frequently Asked Questions
         </h2>
-        
+
         <div className="bg-gray-800 rounded-lg p-6">
           {faqs.map((faq, index) => (
             <FaqItem

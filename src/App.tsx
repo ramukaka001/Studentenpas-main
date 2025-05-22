@@ -34,7 +34,7 @@ function App() {
                 <HeroSection />
                 <VideoSection />
                 <CategorySection />
-                <ConsultationSection />
+                {/* <ConsultationSection /> */}
                 <UniversitySection />
                 <TestimonialSection />
                 <CareerPathSection />

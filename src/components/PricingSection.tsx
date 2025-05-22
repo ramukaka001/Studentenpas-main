@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Check } from 'lucide-react';
 import axios from 'axios';
+import { API_URL } from '../constants';
 
 interface PricingPlanProps {
   title: string;
@@ -13,8 +14,8 @@ interface PricingPlanProps {
 const PricingPlan: React.FC<PricingPlanProps> = ({ title, price, features, isPopular = false, onSelectPlan }) => {
   return (
     <div className={`rounded-xl overflow-hidden ${isPopular
-        ? 'bg-gradient-to-b from-blue-500 to-blue-900 border-0 transform scale-105 shadow-xl'
-        : 'bg-gray-800 border border-gray-700'
+      ? 'bg-gradient-to-b from-blue-500 to-blue-900 border-0 transform scale-105 shadow-xl'
+      : 'bg-gray-800 border border-gray-700'
       }`}>
       <div className="p-8">
         <h3 className={`text-2xl font-bold italic text-center mb-4 ${isPopular ? 'text-white' : 'text-blue-400'}`}>
@@ -34,8 +35,8 @@ const PricingPlan: React.FC<PricingPlanProps> = ({ title, price, features, isPop
         <div className="mt-8">
           <button
             className={`w-full py-3 rounded-md font-medium transition ${isPopular
-                ? 'bg-white text-blue-600 hover:bg-gray-100'
-                : 'bg-blue-500 text-white hover:bg-blue-600'
+              ? 'bg-white text-blue-600 hover:bg-gray-100'
+              : 'bg-blue-500 text-white hover:bg-blue-600'
               }`}
             onClick={() => onSelectPlan(price)} // On click, set selected price
           >
@@ -47,243 +48,195 @@ const PricingPlan: React.FC<PricingPlanProps> = ({ title, price, features, isPop
   );
 };
 
+const PRICING_OPTIONS = {
+  "999": "starter",
+  "4999": "silver",
+  "9999": "gold",
+};
+
 const PricingSection: React.FC = () => {
   const [selectedPrice, setSelectedPrice] = useState<string | null>(null);
   const [formVisible, setFormVisible] = useState(false);
+  const [sdkReady, setSdkReady] = useState(false);
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    whatsapp: ''
+    name: "",
+    email: "",
+    phone: "",
+    whatsapp: "",
   });
-  const [sdkReady, setSdkReady] = useState(false); 
 
-  // Load Razorpay SDK on component mount
-  const loadScript = (src: string): Promise<boolean> => {
-    return new Promise((resolve) => {
-      const script = document.createElement("script");
-      script.src = src;
-      script.onload = () => resolve(true);
-      script.onerror = () => resolve(false);
-      document.body.appendChild(script);
-    });
-  };
-
+  // Razorpay SDK loader
   useEffect(() => {
-    // Load Razorpay SDK on component mount
+    const loadScript = (src: string): Promise<boolean> => {
+      return new Promise((resolve) => {
+        const script = document.createElement("script");
+        script.src = src;
+        script.onload = () => resolve(true);
+        script.onerror = () => resolve(false);
+        document.body.appendChild(script);
+      });
+    };
+
     loadScript("https://checkout.razorpay.com/v1/checkout.js").then((loaded) => {
       setSdkReady(loaded);
-      if (!loaded) {
-        console.error("Razorpay SDK failed to load.");
-      }
+      if (!loaded) console.error("Failed to load Razorpay SDK");
     });
   }, []);
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSelectPlan = (price: string) => {
+    const cleanedPrice = price.replace(/,/g, "");
+    setSelectedPrice(cleanedPrice);
+    setFormVisible(true);
+  };
+
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    const cleanedPrice = selectedPrice?.replace(/,/g, '');
-    
-    const packageMap: { [key: string]: string } = {
-      "999": "starter",
-      "4999": "silver",
-      "9999": "gold",
-    };
-    
-    const packageType = packageMap[cleanedPrice!]; 
-  
+    if (!selectedPrice || !sdkReady) {
+      alert("Please wait, Razorpay is loading...");
+      return;
+    }
+
+    const packageType = PRICING_OPTIONS[selectedPrice as keyof typeof PRICING_OPTIONS];
+    if (!packageType) {
+      alert("Invalid package selection.");
+      return;
+    }
+
     try {
-      const { data } = await axios.post('http://localhost:3000/api/payment/paymentForm', {
+      const { data } = await axios.post(`${API_URL}/payment/paymentForm`, {
         name: formData.name,
         email: formData.email,
         phoneNo: formData.phone,
         whatsappNo: formData.whatsapp,
         packageType,
       });
-  
-      // Log the order amount to debug
-      console.log("Order Amount from Backend:", data.order.amount);
-  
-      if (!sdkReady) {
-        alert("Please wait, payment SDK is still loading...");
-        return;
-      }
-  
-      const amountInPaise = data.order.amount * 100; // Multiply by 100 to convert INR to Paise
-  
-      const options = {
-        key: 'rzp_test_BLFX3LFqsUlSeD',
-        amount: amountInPaise,  // Amount in paise
+
+      const amountInPaise = data.order.amount * 100;
+
+      const rzp = new (window as any).Razorpay({
+        key: "rzp_test_BLFX3LFqsUlSeD",
+        amount: amountInPaise,
         currency: "INR",
         name: "Career Packages",
-        description: "Payment for " + packageType + " package",
+        description: `Payment for ${packageType} package`,
         order_id: data.order.id,
-        handler: async function (response: any) {
-          const verifyRes = await axios.post('http://localhost:3000/api/payment/verifyPayment', {
-            razorpay_order_id: response.razorpay_order_id,
-            razorpay_payment_id: response.razorpay_payment_id,
-            razorpay_signature: response.razorpay_signature,
-          });
-  
-          if (verifyRes.data.success) {
-            alert("Payment successful!");
-          } else {
-            alert("Payment verification failed.");
-          }
-        },
         prefill: {
           name: formData.name,
           email: formData.email,
           contact: formData.phone,
         },
         theme: {
-          color: "#3399cc",
+          color: "#16a34a",
         },
-      };
-  
-      const rzp = new (window as any).Razorpay(options);
+        handler: async function (response: any) {
+          const verifyRes = await axios.post(`${API_URL}/payment/verifyPayment`, {
+            razorpay_order_id: response.razorpay_order_id,
+            razorpay_payment_id: response.razorpay_payment_id,
+            razorpay_signature: response.razorpay_signature,
+          });
+
+          if (verifyRes.data.success) {
+            alert("Payment successful!");
+            setFormVisible(false);
+          } else {
+            alert("Payment verification failed.");
+          }
+        },
+      });
+
       rzp.open();
-  
     } catch (error) {
-      console.error("Payment initiation failed:", error);
-      alert("Payment failed to initiate.");
+      console.error("Payment Error:", error);
+      alert("Payment could not be initiated. Try again.");
     }
   };
-  
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
-
-  const handleSelectPlan = (price: string) => {
-    const formattedPrice = price.replace(/,/g, ''); 
-    setSelectedPrice(formattedPrice); 
-    setFormVisible(true);
-  };
-  
 
   return (
-    <div className="bg-gray-900 py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-white text-center italic mb-16">
-          Our Packages
-        </h2>
+    <section className="relative bg-gray-950 py-20 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-4xl font-extrabold mb-16 italic">Our Packages</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <PricingPlan
             title="Starter Package"
             price="999"
             features={[
-              'Basic Career Assessment',
-              'Basic Career Assessment',
-              'Email Support',
-              'Email Support',
-              'Career Report',
-              'Career Report',
+              "Basic Career Assessment",
+              "Email Support",
+              "Career Report",
             ]}
             onSelectPlan={handleSelectPlan}
           />
-          
           <PricingPlan
             title="Silver Package"
             price="4,999"
+            isPopular
             features={[
-              'Advanced Career Assessment',
-              'Advanced Career Assessment',
-              'Email & Phone Support',
-              'Email & Phone Support',
-              'Detailed Career Report',
-              'Detailed Career Report',
+              "Advanced Career Assessment",
+              "Email & Phone Support",
+              "Detailed Career Report",
             ]}
-            isPopular={true}
             onSelectPlan={handleSelectPlan}
           />
-          
           <PricingPlan
             title="Gold Package"
             price="9,999"
             features={[
-              'Comprehensive Career Assessment',
-              'Comprehensive Career Assessment',
-              'Dedicated Support',
-              'Dedicated Support',
-              'In-depth Career Report',
-              'In-depth Career Report',
+              "Comprehensive Career Assessment",
+              "Dedicated Support",
+              "In-depth Career Report",
             ]}
             onSelectPlan={handleSelectPlan}
           />
         </div>
 
         {formVisible && (
-          <div className="mt-16 p-8 bg-white rounded-lg shadow-lg">
-            <h3 className="text-2xl font-bold text-center mb-6">Enter Your Details</h3>
-            <form onSubmit={handleFormSubmit}>
-              <div className="mb-4">
-                <label htmlFor="name" className="block text-lg font-medium">Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full p-3 border border-gray-300 rounded-md"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label htmlFor="email" className="block text-lg font-medium">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full p-3 border border-gray-300 rounded-md"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label htmlFor="phone" className="block text-lg font-medium">Phone Number</label>
-                <input
-                  type="text"
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full p-3 border border-gray-300 rounded-md"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <label htmlFor="whatsapp" className="block text-lg font-medium">WhatsApp Number</label>
-                <input
-                  type="text"
-                  id="whatsapp"
-                  name="whatsapp"
-                  value={formData.whatsapp}
-                  onChange={handleChange}
-                  className="w-full p-3 border border-gray-300 rounded-md"
-                  required
-                />
-              </div>
-              <div className="mb-4">
-                <p className="text-lg font-medium">Price: ₹{selectedPrice}</p>
-              </div>
+          <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
+            <div className="bg-white text-black rounded-xl shadow-2xl p-8 w-full max-w-lg relative animate-fadeIn">
               <button
-                type="submit"
-                className="w-full py-3 bg-green-500 text-white rounded-md"
+                className="absolute top-4 right-4 text-gray-700 hover:text-black transition"
+                onClick={() => setFormVisible(false)}
               >
-                Pay Now
+                ✕
               </button>
-            </form>
+              <h3 className="text-2xl font-semibold mb-6 text-center">Enter Your Details</h3>
+              <form onSubmit={handleFormSubmit} className="space-y-4">
+                {["name", "email", "phone", "whatsapp"].map((field) => (
+                  <div key={field}>
+                    <label htmlFor={field} className="block text-sm font-medium mb-1 capitalize text-start">
+                      {field === "whatsapp" ? "WhatsApp Number" : field.charAt(0).toUpperCase() + field.slice(1)}
+                    </label>
+                    <input
+                      type={field === "email" ? "email" : "text"}
+                      name={field}
+                      id={field}
+                      value={formData[field as keyof typeof formData]}
+                      onChange={handleChange}
+                      required
+                      className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500"
+                    />
+                  </div>
+                ))}
+                <div className="font-semibold text-lg">
+                  Price: ₹{Number(selectedPrice).toLocaleString()}
+                </div>
+                <button
+                  type="submit"
+                  className="w-full py-3 mt-2 bg-green-600 hover:bg-green-700 text-white rounded-md transition font-semibold"
+                >
+                  Pay Now
+                </button>
+              </form>
+            </div>
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 
