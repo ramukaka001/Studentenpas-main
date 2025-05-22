@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PricingSection from '../components/PricingSection';
 import axios from 'axios';
-import { API_URL } from '../constants';
+import { API_URL, SITE } from '../constants';
 
 interface ServiceCardProps {
   title: string;
@@ -122,7 +122,7 @@ const AdmissionAssistant: React.FC = () => {
                 Book a Personalized Career Session with Experts*
               </p>
               <p className="text-gray-400 mb-8">
-                At Degree Expres, we understand that navigating your academic and career future can feel daunting. Our personalized counselling services provide expert guidance, empowering you to make informed decisions and achieve your full potential. From choosing the right courses to securing admission in your dream university, we are with you every step of the way.
+                At {SITE.name} {SITE.sub}, we understand that navigating your academic and career future can feel daunting. Our personalized counselling services provide expert guidance, empowering you to make informed decisions and achieve your full potential. From choosing the right courses to securing admission in your dream university, we are with you every step of the way.
               </p>
               <div className="flex space-x-4">
                 <Link to="/career-counselling" className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-md transition">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram, Send } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SITE } from '../constants';
 
 const Footer: React.FC = () => {
   return (
@@ -10,13 +11,13 @@ const Footer: React.FC = () => {
           {/* Column 1 - Logo and Info */}
           <div>
             <div className="flex items-center mb-4">
-              <span className="text-blue-300 text-2xl font-semibold">Degree</span>
+              <span className="text-blue-300 text-2xl font-semibold">{SITE.name}</span>
               <div className="bg-blue-500 px-2 py-1 rounded-md transform rotate-2">
-                <span className="text-white text-2xl font-semibold">Express</span>
+                <span className="text-white text-2xl font-semibold">{SITE.sub}</span>
               </div>
             </div>
             <p className="text-blue-100 text-sm mb-4">
-              Degree Express is a college counselling website dedicated to helping students find the right educational path.
+            {SITE.name} {SITE.sub} is a college counselling website dedicated to helping students find the right educational path.
             </p>
             <div className="flex space-x-4">
               <Link to="#" className="text-blue-300 hover:text-white transition">
@@ -90,7 +91,7 @@ const Footer: React.FC = () => {
       {/* Copyright */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <p className="text-center text-blue-200 text-sm">
-          © {new Date().getFullYear()} DegreeExpress. All rights reserved.
+          © {new Date().getFullYear()} {SITE.name}{SITE.sub}. All rights reserved.
         </p>
       </div>
     </footer>

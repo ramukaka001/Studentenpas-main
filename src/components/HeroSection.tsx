@@ -1,6 +1,7 @@
 import React from 'react';
 import { Globe, Rocket } from 'lucide-react';
 import StatCounter from './StatCounter';
+import { SITE } from '../constants';
 
 const HeroSection: React.FC = () => {
   return (
@@ -15,7 +16,7 @@ const HeroSection: React.FC = () => {
               with Expert College Counselling
             </h1>
             <p className="text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0">
-              Skip the confusion. Degree Expres helps you discover your ideal path, choose the right college, and launch a future built on clarity, confidence, and opportunity.
+              Skip the confusion. {SITE.name} {SITE.sub} helps you discover your ideal path, choose the right college, and launch a future built on clarity, confidence, and opportunity.
             </p>
             <a href="#pricing" className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-md text-lg font-medium transition transform hover:-translate-y-1 hover:shadow-xl">
               Start Your Counselling Now

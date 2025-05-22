@@ -1,5 +1,6 @@
 import React from 'react';
 import { Users, Laptop, Network, HandHelping, BarChart2, LightbulbIcon } from 'lucide-react';
+import { SITE } from '../constants';
 
 interface FeatureCardProps {
   icon: React.ReactNode;
@@ -63,7 +64,7 @@ const FeatureSection: React.FC = () => {
     <div className="bg-gray-900 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-4xl md:text-5xl font-bold text-white text-center uppercase mb-16">
- Why Choose Degree Expres?
+ Why Choose {SITE.name} {SITE.sub}?
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

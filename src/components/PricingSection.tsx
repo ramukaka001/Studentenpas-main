@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Check } from 'lucide-react';
 import axios from 'axios';
-import { API_URL, RAZORPAY_KEY } from '../constants';
+import { API_URL, RAZORPAY_KEY, SITE } from '../constants';
 
 interface PricingPlanProps {
   title: string;
@@ -125,7 +125,7 @@ const PricingSection: React.FC = () => {
         key: RAZORPAY_KEY,
         amount: amountInPaise,
         currency: "INR",
-        name: "Degree Express",
+        name: `${SITE.name} ${SITE.sub}`,
         description: `Payment for ${packageType} package`,
         order_id: data.order.id,
         prefill: {

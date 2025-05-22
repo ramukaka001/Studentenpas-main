@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SITE } from '../constants';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,9 +15,9 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <div className="flex items-center">
           <Link to="/" className="flex items-center">
-            <span className="text-blue-400 text-2xl font-semibold">Degree</span>
+            <span className="text-blue-400 text-2xl font-semibold">{SITE.name}</span>
             <div className="bg-blue-500 px-2 py-1 rounded-md transform rotate-2">
-              <span className="text-white text-2xl font-semibold">Expres</span>
+              <span className="text-white text-2xl font-semibold">{SITE.sub}</span>
             </div>
           </Link>
         </div>

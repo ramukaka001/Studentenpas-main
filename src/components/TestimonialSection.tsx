@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Play } from 'lucide-react';
+import { SITE } from '../constants';
 
 // Define the structure of a testimonial object
 interface Testimonial {
@@ -117,7 +118,7 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial }> = ({ testimonial }
         <StarRating rating={testimonial.rating} />
         {/* Placeholder quote - replace with actual testimonial text */}
         <p className="mt-4 text-gray-200 italic">
-          "Degree Expres helped me navigate the complex college application process with ease and confidence. Highly recommended!"
+          "{SITE.name} {SITE.sub} helped me navigate the complex college application process with ease and confidence. Highly recommended!"
         </p>
       </div>
     </div>

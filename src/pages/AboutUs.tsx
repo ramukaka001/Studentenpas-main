@@ -1,6 +1,7 @@
 import React from 'react';
 import { Users, Laptop, Network, HandHelping, LightbulbIcon, BarChart2 } from 'lucide-react';
 import { Play } from 'lucide-react';
+import { SITE } from '../constants';
 
 interface FeatureCardProps {
   icon: React.ReactNode;
@@ -103,7 +104,7 @@ const AboutUs: React.FC = () => {
           <div className="text-center">
             <h1 className="text-5xl font-bold text-white mb-6">About us</h1>
             <p className="text-gray-200 max-w-2xl mx-auto">
- At Degree Expres, we are passionate about empowering students to achieve their academic
+ At {SITE.name} {SITE.sub}, we are passionate about empowering students to achieve their academic
  and career dreams. We provide comprehensive college counseling services.
             </p>
           </div>
@@ -156,7 +157,7 @@ const AboutUs: React.FC = () => {
             Our Team Member
           </h2>
           <p className="text-gray-400 text-center mb-12 max-w-3xl mx-auto">
- Meet the dedicated individuals behind Degree Expres, committed to providing
+ Meet the dedicated individuals behind {SITE.name} {SITE.sub}, committed to providing
  the best possible support for your academic journey.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

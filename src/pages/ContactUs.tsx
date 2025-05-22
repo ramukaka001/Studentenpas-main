@@ -1,5 +1,6 @@
 import React from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
+import { SITE } from '../constants';
 
 const ContactUs: React.FC = () => {
   return (
@@ -68,7 +69,7 @@ const ContactUs: React.FC = () => {
                   </div>
                   <div>
                     <h3 className="text-white font-semibold mb-2">Email Id</h3>
-                    <p className="text-gray-400">support@degreeexpress.in</p>
+                    <p className="text-gray-400">support@{(SITE.name + SITE.sub).toLowerCase()}.in</p>
                   </div>
                 </div>
               </div>
