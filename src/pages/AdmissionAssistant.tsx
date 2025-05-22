@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import PricingSection from '../components/PricingSection';
 import axios from 'axios';
+import { API_URL } from '../constants';
 
 interface ServiceCardProps {
   title: string;
@@ -62,26 +63,26 @@ const AdmissionAssistant: React.FC = () => {
   ];
 
   const [formData, setFormData] = useState({
-      name: '',
-      email: '',
-      mobile: '',
-      message: '',
-    });
-  
-    
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      const { name, value } = e.target;
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value,
-      }));
-    };
+    name: '',
+    email: '',
+    mobile: '',
+    message: '',
+  });
+
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3000/api/consult/bookConsult', formData);
+      const response = await axios.post(`${API_URL}/consult/bookConsult`, formData);
       if (response.data.success) {
         alert('Thanks! We will contact you soon.');
         setFormData({ name: '', email: '', mobile: '', message: '' });
@@ -259,7 +260,7 @@ const AdmissionAssistant: React.FC = () => {
       </div>
 
       {/* Packages Section */}
-      <PricingSection/>
+      <PricingSection />
 
       {/* Benefits Section */}
       <div className="bg-blue-600 py-16">

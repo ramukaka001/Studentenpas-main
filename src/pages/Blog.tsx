@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MoreHorizontal, Play } from 'lucide-react';
 import axios from 'axios';
+import { API_URL } from '../constants';
 
 interface BlogPostProps {
   image: string;
@@ -116,7 +117,7 @@ const Blog: React.FC = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:3000/api/blog/uploadBlog', form, {
+      const response = await axios.post(`${API_URL}/blog/uploadBlog`, form, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

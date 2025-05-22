@@ -125,7 +125,7 @@ const PricingSection: React.FC = () => {
         key: RAZORPAY_KEY,
         amount: amountInPaise,
         currency: "INR",
-        name: "Career Packages",
+        name: "Degree Express",
         description: `Payment for ${packageType} package`,
         order_id: data.order.id,
         prefill: {

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Rocket } from 'lucide-react';
 import axios from 'axios';
+import { API_URL } from '../constants';
 
 interface ServiceCardProps {
   title: string;
@@ -122,7 +123,7 @@ const CareerCounselling: React.FC = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:3000/api/consult/bookConsult', formData);
+      const response = await axios.post(`${API_URL}/consult/bookConsult`, formData);
       if (response.data.success) {
         alert('Thanks! We will contact you soon.');
         setFormData({ name: '', email: '', mobile: '', message: '' });
