@@ -1,3 +1,6 @@
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:1021477225.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:2711344930.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:3970646243.
 import React, { useState, useEffect } from 'react';
 import { Check } from 'lucide-react';
 import axios from 'axios';
@@ -64,6 +67,7 @@ const PricingSection: React.FC = () => {
     phone: "",
     whatsapp: "",
   });
+  const [loading, setLoading] = useState(false);
 
   // Razorpay SDK loader
   useEffect(() => {
@@ -96,6 +100,7 @@ const PricingSection: React.FC = () => {
 
   const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     if (!selectedPrice || !sdkReady) {
       alert("Please wait, Razorpay is loading...");
       return;
@@ -109,6 +114,7 @@ const PricingSection: React.FC = () => {
 
     try {
       const { data } = await axios.post(`${API_URL}/payment/paymentForm`, {
+
         name: formData.name,
         email: formData.email,
         phoneNo: formData.phone,
@@ -150,10 +156,13 @@ const PricingSection: React.FC = () => {
       });
 
       rzp.open();
+      setLoading(false); // Stop loading when Razorpay opens
     } catch (error) {
       console.error("Payment Error:", error);
       alert("Payment could not be initiated. Try again.");
+      setLoading(false); // Stop loading on error
     }
+
   };
 
   return (
@@ -198,7 +207,7 @@ const PricingSection: React.FC = () => {
         {formVisible && (
           <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center">
             <div className="bg-white text-black rounded-xl shadow-2xl p-8 w-full max-w-lg relative animate-fadeIn">
-              <button
+              <button disabled={loading}
                 className="absolute top-4 right-4 text-gray-700 hover:text-black transition"
                 onClick={() => setFormVisible(false)}
               >
@@ -206,7 +215,7 @@ const PricingSection: React.FC = () => {
               </button>
               <h3 className="text-2xl font-semibold mb-6 text-center">Enter Your Details</h3>
               <form onSubmit={handleFormSubmit} className="space-y-4">
-                {["name", "email", "phone", "whatsapp"].map((field) => (
+                {["name", "email", "phone", "whatsapp"].map((field) => ( // Make input disabled when loading
                   <div key={field}>
                     <label htmlFor={field} className="block text-sm font-medium mb-1 capitalize text-start">
                       {field === "whatsapp" ? "WhatsApp Number" : field.charAt(0).toUpperCase() + field.slice(1)}
@@ -218,6 +227,7 @@ const PricingSection: React.FC = () => {
                       value={formData[field as keyof typeof formData]}
                       onChange={handleChange}
                       required
+                      disabled={loading}
                       className="w-full border border-gray-300 rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500"
                     />
                   </div>
@@ -226,9 +236,11 @@ const PricingSection: React.FC = () => {
                   Price: ₹{Number(selectedPrice).toLocaleString()}
                 </div>
                 <button
-                  type="submit"
-                  className="w-full py-3 mt-2 bg-green-600 hover:bg-green-700 text-white rounded-md transition font-semibold"
+                  type="submit" disabled={loading}
+                  className={`w-full py-3 mt-2 text-white rounded-md transition font-semibold ${loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700'}`}
                 >
+                  {loading && <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.907l2-2.616zm10-5.291a7.962 7.962 0 01-2 5.291l2 2.616A7.962 7.962 0 0120 12h-4z"></path></svg>}
                   Pay Now
                 </button>
               </form>
