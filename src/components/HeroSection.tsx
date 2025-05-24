@@ -11,15 +11,15 @@ const HeroSection: React.FC = () => {
 
           {/* Left Content */}
           <div className="lg:w-1/2 z-10 text-center lg:text-left">
-            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6">
-              Your Future, <span className="text-blue-500">Guided Right</span><br />
-              with Expert College Counselling
+            <h1 className="text-4xl md:text-5xl font-extrabold text-white leading-tight mb-6">
+              Your Admission <span className="text-blue-500">,</span><br />
+              Now Over Resposibility
             </h1>
             <p className="text-gray-300 mb-8 max-w-xl mx-auto lg:mx-0">
               Skip the confusion. {SITE.name} {SITE.sub} helps you discover your ideal path, choose the right college, and launch a future built on clarity, confidence, and opportunity.
             </p>
-            <a href="#pricing" className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-8 rounded-md text-lg font-medium transition transform hover:-translate-y-1 hover:shadow-xl">
-              Start Your Counselling Now
+            <a href="#pricing" className="bg-blue-600 hover:bg-blue-700 font-semibold text-white py-3 px-8 rounded-md text-lg transition transform hover:-translate-y-1 hover:shadow-xl">
+              Get Your Admission Now
             </a>
           </div>
 
@@ -44,10 +44,10 @@ const HeroSection: React.FC = () => {
 
         {/* Stats Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16 border border-gray-800 rounded-xl p-6 bg-gray-800 bg-opacity-60 backdrop-blur-md shadow-inner">
-          <StatCounter value={98} label="Admission Success Rate" suffix="%" />
-          <StatCounter value={97} label="Career Satisfaction Rate" suffix="%" />
-          <StatCounter value={30000} label="Students Counselled" />
-          <StatCounter value={75} label="Top Universities Covered" />
+          <StatCounter value={99.99} label="Admission Success Rate" suffix="%" />
+          <StatCounter value={100} label="Career Satisfaction Rate" suffix="%" />
+          <StatCounter value={100000} suffix="+" label="Students Counselled" />
+          <StatCounter value={100} suffix='+' label="Top Universities Covered" />
         </div>
       </div>
     </div>
