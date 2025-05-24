@@ -1,3 +1,5 @@
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:3264637771.
+// Suggested code may be subject to a license. Learn more: ~LicenseLog:3298962115.
 import React, { useState } from 'react';
 import { Search } from 'lucide-react';
 import CareerCard from './CareerCard';
@@ -18,22 +20,22 @@ const categories = [
 const careerFields = [
   {
     id: 1,
-    title: 'Software Engineering',
-    description: 'Develop innovative software solutions and build the digital future.',
+    title: 'Engineering',
+    description: 'Engineering deals with the design, building, and use of engines, machines, and structures. It is the application of science and math to solve problems.',
     image: 'https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg',
     color: 'bg-purple-500',
   },
   {
     id: 2,
-    title: 'Creative Writing',
-    description: 'Craft compelling narratives and explore the power of language.',
+    title: 'CUET',
+    description: 'CUET (Common University Entrance Test) is an all-India test conducted by the National Testing Agency (NTA) for admission to various undergraduate, postgraduate, and research programs in universities across India.',
     image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg',
     color: 'bg-pink-500',
   },
   {
     id: 3,
-    title: 'Medicine',
-    description: 'Heal and care for others through the practice of medicine.',
+    title: 'IISER',
+    description: 'IISER (Indian Institutes of Science Education and Research) are a group of premier autonomous public universities in India that offer integrated undergraduate and postgraduate programs in science and research.',
     image: 'https://images.pexels.com/photos/5214949/pexels-photo-5214949.jpeg',
     color: 'bg-green-500',
   },

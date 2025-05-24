@@ -7,28 +7,32 @@ interface PricingPlanProps {
   title: string;
   price: string;
   features: string[];
+  description?: string;
   isPopular?: boolean;
   onSelectPlan: (price: string) => void;
 }
 
-const PricingPlan: React.FC<PricingPlanProps> = ({ title, price, features, isPopular = false, onSelectPlan }) => {
+const PricingPlan: React.FC<PricingPlanProps> = ({ title, price, features, description, isPopular = false, onSelectPlan }) => {
   return (
     <div className={`rounded-xl overflow-hidden ${isPopular
       ? 'bg-gradient-to-b from-blue-500 to-blue-900 border-0 transform scale-105 shadow-xl'
       : 'bg-gray-800 border border-gray-700'
       }`}>
       <div className="p-8">
-        <h3 className={`text-2xl font-bold italic text-center mb-4 ${isPopular ? 'text-white' : 'text-blue-400'}`}>
-          {title}
-        </h3>
+        <div className='mb-4'>
+          <h3 className={`text-2xl font-bold italic text-center  ${isPopular ? 'text-white' : 'text-blue-400'}`}>
+            {title}
+          </h3>
+          {description && <span className="text-white/70 text-sm">{description}</span>}
+        </div>
         <div className={`text-3xl font-bold text-center mb-8 ${isPopular ? 'text-white' : 'text-white'}`}>
           ₹{price}
         </div>
         <ul className="space-y-3">
           {features.map((feature, index) => (
-            <li key={index} className="flex items-center">
-              <Check size={16} className={`mr-2 ${isPopular ? 'text-white' : 'text-green-400'}`} />
-              <span className={isPopular ? 'text-blue-100' : 'text-gray-300'}>{feature}</span>
+            <li key={index} className="flex items-center text-start">
+              <Check size={16} className={`mr-2 min-w-4 ${isPopular ? 'text-white' : 'text-green-400'}`} />
+              <span className={isPopular ? 'text-blue-100' : 'text-gray-300'}><strong>{feature.split(' – ')[0]}</strong> {' – '} {feature.split(' – ')[1]}</span>
             </li>
           ))}
         </ul>
@@ -171,33 +175,43 @@ const PricingSection: React.FC = () => {
           <PricingPlan
             title="Starter Package"
             price="999"
+            description="Get Ready to Launch Your Career!"
             features={[
-              "Basic Career Assessment",
-              "Email Support",
-              "Career Report",
+              "Virtual Counselling Support – Access expert advice anytime, anywhere",
+              "Document Verification – We double-check your docs, so you don’t have to stress",
+              "Government College Insights – Unlock the best-kept secrets of top colleges",
+              "Custom Admission Plan – A roadmap that’s as unique as you are",
+              "Winning Strategy – Tailored steps to put you ahead of the pack!",
             ]}
             onSelectPlan={handleSelectPlan}
           />
           <PricingPlan
             title="Silver Package"
             price="4,999"
+            description="Elevate Your Game – Go Beyond the Basics!"
             isPopular
-            features={[
-              "Advanced Career Assessment",
-              "Email & Phone Support",
-              "Detailed Career Report",
-            ]}
             onSelectPlan={handleSelectPlan}
+            features={[
+              "Government College Seat Allotment – Secure your spot in a top-tier government college",
+              "Application Form Filling – We take the paperwork headache off your plate",
+              "Cutoff Hacks & Strategy – Know the numbers, make the right moves",
+              "Offline College Meeting – Face-to-face with college officials – get the inside scoop",
+              "100% Money-Back Guarantee – We don’t just promise success, we deliver it – or your money back!",
+            ]}
           />
           <PricingPlan
-            title="Gold Package"
+            title="Golden Package"
             price="9,999"
-            features={[
-              "Comprehensive Career Assessment",
-              "Dedicated Support",
-              "In-depth Career Report",
-            ]}
+            description="The VIP Experience – Guaranteed College Placement!"
             onSelectPlan={handleSelectPlan}
+            features={[
+              "100% Government College Seat Guaranteed – Your dream college, locked in!",
+              "Full-Team Expert Counselling – We’ll be by your side every step of the way",
+              "Top Government College Options – Only the best, no compromises",
+              "Power Meetings with Colleges – Deep dive planning and direct college interaction",
+              "100% Money-Back Guarantee – Zero risk, all reward!",
+              "Flawless Application Form Filling – We make sure every detail is perfect",
+            ]}
           />
         </div>
 
