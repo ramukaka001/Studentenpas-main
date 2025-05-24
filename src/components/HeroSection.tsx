@@ -24,7 +24,7 @@ const HeroSection: React.FC = () => {
           </div>
 
           {/* Right Content - Student Image */}
-          <div className="lg:w-1/2 relative">
+          <div className="lg:w-1/2 relative min-h-[490px]">
             <div className="absolute right-0 top-0 w-72 h-72 md:w-96 md:h-96 bg-gradient-to-tr from-blue-600 via-blue-400 to-purple-500 rounded-full z-0 blur-3xl opacity-30 animate-pulse"></div>
             <img
               src="/image.webp"
