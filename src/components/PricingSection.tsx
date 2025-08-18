@@ -120,7 +120,7 @@ const PricingSection: React.FC = () => {
         email: formData.email,
         phoneNo: formData.phone,
         whatsappNo: formData.whatsapp,
-        packageType,
+        packageType: `${packageType}2`,
       });
 
       const amountInPaise = data.order.amount * 100;
