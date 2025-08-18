@@ -53,9 +53,9 @@ const PricingPlan: React.FC<PricingPlanProps> = ({ title, price, features, descr
 };
 
 const PRICING_OPTIONS = {
-  "999": "starter",
-  "4999": "silver",
-  "9999": "gold",
+  "499": "starter",
+  "799": "silver",
+  "999": "gold",
 };
 
 const PricingSection: React.FC = () => {
@@ -174,7 +174,7 @@ const PricingSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <PricingPlan
             title="Starter Package"
-            price="999"
+            price="499"
             description="Get Ready to Launch Your Career!"
             features={[
               "Virtual Counselling Support – Access expert advice anytime, anywhere",
@@ -187,7 +187,7 @@ const PricingSection: React.FC = () => {
           />
           <PricingPlan
             title="Silver Package"
-            price="4,999"
+            price="799"
             description="Elevate Your Game – Go Beyond the Basics!"
             isPopular
             onSelectPlan={handleSelectPlan}
@@ -201,7 +201,7 @@ const PricingSection: React.FC = () => {
           />
           <PricingPlan
             title="Golden Package"
-            price="9,999"
+            price="999"
             description="The VIP Experience – Guaranteed College Placement!"
             onSelectPlan={handleSelectPlan}
             features={[
